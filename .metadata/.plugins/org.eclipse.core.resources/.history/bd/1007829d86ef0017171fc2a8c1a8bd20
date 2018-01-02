@@ -1,0 +1,45 @@
+package com.purview_detail.model;
+
+import com.administrator.model.AdministratorVO;
+
+public class Purview_DetailVO implements java.io.Serializable {
+		private int PURVIEW_DETAIL_NO;
+		//private int adm_no;
+		//private int purview_no;
+		private String checked;
+		
+		private AdministratorVO administratorVO;
+		
+
+		public AdministratorVO getAdministratorVO() {
+			return administratorVO;
+		}
+		public void setAdministratorVO(AdministratorVO administratorVO) {
+			this.administratorVO = administratorVO;
+		}
+		public String getChecked() {
+			return checked;
+		}
+		public void setChecked(String checked) {
+			this.checked = checked;
+		}
+		public int getPURVIEW_DETAIL_NO() {
+			return PURVIEW_DETAIL_NO;
+		}
+		public void setPURVIEW_DETAIL_NO(int pURVIEW_DETAIL_NO) {
+			PURVIEW_DETAIL_NO = pURVIEW_DETAIL_NO;
+		}
+//		public int getAdm_no() {
+//			return adm_no;
+//		}
+//		public void setAdm_no(int adm_no) {
+//			this.adm_no = adm_no;
+//		}
+		public int getPurview_no() {
+			return purview_no;
+		}
+		public void setPurview_no(int purview_no) {
+			this.purview_no = purview_no;
+		}
+	
+}

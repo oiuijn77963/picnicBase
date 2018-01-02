@@ -258,12 +258,13 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
+		String sql = "from AdministratorVO where adm_sta = 'N' order by administrator";
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
 		try {
 
 			session.beginTransaction();
-			Query query = session.createQuery("from AdministratorVO order by administrator");
+			Query query = session.createQuery(sql);
 			list = query.list();
 			session.getTransaction().commit();
 		}catch (RuntimeException ex) {

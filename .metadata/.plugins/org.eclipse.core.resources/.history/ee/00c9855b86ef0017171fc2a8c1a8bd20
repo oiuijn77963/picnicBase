@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.purview.model.PurviewVO" table="PURVIEW" >
+        
+        <id name="purview_no" column="PURVIEW_NO">
+            <generator class="sequence" >
+              <param name="sequence">PURVIEW_NO_SQ</param>
+            </generator>  
+        </id>
+        
+        <property name="purview_name" column="PURVIEW_NAME" />
+
+		<set name="Purview_DetailVOs" table="PURVIEW_DETAIL" lazy="false" cascade="all" inverse="true" order-by="ADM_NO asc">
+			<key><column name="ADM_NO" /></key>
+			<one-to-many class="com.purview_detail.model.Purview_DetailVO" />
+		</set>
+
+
+    </class>
+</hibernate-mapping>
+
