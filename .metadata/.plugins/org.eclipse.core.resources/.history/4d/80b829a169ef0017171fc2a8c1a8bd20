@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name="com.administrator.model.PurviewVO" table="PURVIEW" >
+        
+        <id name="purview_no" column="PURVIEW_NO">
+            <generator class="sequence" >
+              <param name="sequence">PURVIEW_NO_SQ</param>
+            </generator>  
+        </id>
+        
+        <property name="adm_acc" column="ADM_ACC" />
+        <property name="adm_pw" column="ADM_PW" />
+        <property name="adm_iden" column="ADM_IDEN" />
+        <property name="adm_name" column="ADM_NAME" />
+        <property name="adm_sta" column="ADM_STA" />
+
+private int purview_no;
+		private String purview_name;
+        
+    </class>
+</hibernate-mapping>
+

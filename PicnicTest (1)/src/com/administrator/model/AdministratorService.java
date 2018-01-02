@@ -29,7 +29,7 @@ public class AdministratorService {
 	}
 
 	
-	public  AdministratorVO modAdministrator(String Administrator,String Adm_cc,String Adm_pw,String Adm_iden, String Adm_name){
+	public  AdministratorVO modAdministrator(int Administrator,String Adm_cc,String Adm_pw,String Adm_iden, String Adm_name){
 		
 		AdministratorVO admVO = new AdministratorVO();
 		admVO.setAdministrator(Administrator);
