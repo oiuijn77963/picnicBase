@@ -33,8 +33,8 @@
 		<property name="hibernate.current_session_context_class">thread</property>
 
 		<!--Java物件與資料庫表格的映射檔 -->
-		<mapping resource="com/administrator/model/Purview.hbm.xml" />
-		<mapping resource="com/administrator/model/Purview_Detail.hbm.xml" />
+		<mapping resource="com/purview/model/Purview.hbm.xml" />
+		<mapping resource="com/purview_detail/model/Purview_Detail.hbm.xml" />
 		<mapping resource="com/administrator/model/Administrator.hbm.xml" />
 
 	</session-factory>

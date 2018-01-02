@@ -6,7 +6,7 @@
     <class name="com.administrator.model.AdministratorVO" table="ADMINISTRATOR" >
         
         <id name="administrator" column="ADM_NO">
-            <generator class="sequence" >
+            <generator class="sequence">
               <param name="sequence">ADM_NO_SQ</param>
             </generator>  
         </id>

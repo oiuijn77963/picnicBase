@@ -24,6 +24,7 @@ public class AdministratorService {
 	public  AdministratorVO addAdministrator(AdministratorVO admiVO){
 		AdministratorVO admVO = new AdministratorVO();
 		admVO = admiVO; 
+		admVO.setAdm_sta("N");
 		dao.insert(admVO);	
 		return admVO;
 	}
@@ -37,6 +38,7 @@ public class AdministratorService {
 		admVO.setAdm_pw(Adm_pw);
 		admVO.setAdm_iden(Adm_iden);
 		admVO.setAdm_name(Adm_name);
+		admVO.setAdm_sta("N");
 		dao.update(admVO);
 		return admVO;
 	}
@@ -44,6 +46,7 @@ public class AdministratorService {
 	public  AdministratorVO modAdministrator(AdministratorVO admiVO){
 		AdministratorVO admVO = new AdministratorVO();
 		admVO = admiVO;
+		admVO.setAdm_sta("N");
 		dao.update(admVO);
 		return admVO;
 	}

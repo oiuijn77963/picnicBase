@@ -49,9 +49,11 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 		Session session = HibernateUtil.getSessionFactory().getCurrentSession();
 		
 		try {
-			
+			System.out.println(administratorVO.getAdministrator());
 			session.beginTransaction();
+			System.out.println(administratorVO.getAdministrator());
 			session.saveOrUpdate(administratorVO);
+			System.out.println(administratorVO.getAdministrator());
 			session.getTransaction().commit();
 		}catch(RuntimeException ex) {
 			session.getTransaction().rollback();
@@ -149,7 +151,7 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 		try {
 			
 			session.beginTransaction();
-			AdministratorVO administratorVO = (AdministratorVO)session.get(AdministratorVO.class, adm_no);
+			AdministratorVO administratorVO = (AdministratorVO)session.get(AdministratorVO.class, Integer.parseInt(adm_no));
 			session.delete(administratorVO);
 			session.getTransaction().commit();
 		}catch(RuntimeException ex) {
@@ -199,7 +201,7 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 		try {
 
 			session.beginTransaction();
-			admVO = (AdministratorVO)session.get(AdministratorVO.class, adm_no);
+			admVO = (AdministratorVO)session.get(AdministratorVO.class, Integer.parseInt(adm_no));
 		}catch (RuntimeException ex) {
 			session.getTransaction().rollback();
 			throw ex;

@@ -3,7 +3,7 @@
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <class name="com.administrator.model.PurviewVO" table="PURVIEW" >
+    <class name="com.purview.model.PurviewVO" table="PURVIEW" >
         
         <id name="purview_no" column="PURVIEW_NO">
             <generator class="sequence" >
