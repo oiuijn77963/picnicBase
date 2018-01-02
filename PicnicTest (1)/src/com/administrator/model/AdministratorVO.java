@@ -1,17 +1,17 @@
 package com.administrator.model;
 
 public class AdministratorVO implements java.io.Serializable{
-		private String administrator;
+		private int administrator;
 		private String adm_acc;
 		private String adm_pw;
 		private String adm_iden;
 		private String adm_name;
 		private String adm_sta;
 		
-		public String getAdministrator() {
+		public int getAdministrator() {
 			return administrator;
 		}
-		public void setAdministrator(String administrator) {
+		public void setAdministrator(int administrator) {
 			this.administrator = administrator;
 		}
 		public String getAdm_acc() {

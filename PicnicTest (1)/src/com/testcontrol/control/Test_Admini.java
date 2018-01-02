@@ -246,7 +246,8 @@ public class Test_Admini extends HttpServlet{
 				err="不得有空格";
 			}
 			
-			mod_adm.setAdministrator(req.getParameter("getAdministrator"));
+			
+			mod_adm.setAdministrator(Integer.parseInt(req.getParameter("getAdministrator")));
 			mod_adm.setAdm_acc(req.getParameter("getAdm_acc"));
 			mod_adm.setAdm_pw(req.getParameter("getAdm_pw"));
 			mod_adm.setAdm_iden(req.getParameter("getAdm_iden"));

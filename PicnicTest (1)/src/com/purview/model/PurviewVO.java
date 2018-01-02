@@ -1,13 +1,13 @@
 package com.purview.model;
 
 public class PurviewVO implements java.io.Serializable {
-		private String purview_no;
+		private int purview_no;
 		private String purview_name;
 		
-		public String getPurview_no() {
+		public int getPurview_no() {
 			return purview_no;
 		}
-		public void setPurview_no(String purview_no) {
+		public void setPurview_no(int purview_no) {
 			this.purview_no = purview_no;
 		}
 		public String getPurview_name() {

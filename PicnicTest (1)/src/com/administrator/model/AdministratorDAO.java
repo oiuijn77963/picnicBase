@@ -24,7 +24,7 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 	}
 	
 	private static final String INSERT_STMT = 
-			"INSERT INTO ADMINISTRATOR (ADM_NO,ADM_ACC,ADM_PW,ADM_IDEN,ADM_NAME,ADM_STA) VALUES ('MA' || LPAD(ADM_NO_SQ.NEXTVAL, 8, '0'), ?, ?, ?, ?,'N')";
+			"INSERT INTO ADMINISTRATOR (ADM_NO,ADM_ACC,ADM_PW,ADM_IDEN,ADM_NAME,ADM_STA) VALUES (LPAD(ADM_NO_SQ.NEXTVAL, 8, '0'), ?, ?, ?, ?,'N')";
 	private static final String GET_ALL_STMT = 
 			"SELECT ADM_NO,ADM_ACC,ADM_PW,ADM_IDEN,ADM_NAME,ADM_STA FROM ADMINISTRATOR where ADM_STA='N' order by ADM_NO";
 	private static final String GET_ONE_STMT = 
@@ -84,7 +84,7 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 			pstmt.setString(2, administratorVO.getAdm_pw());
 			pstmt.setString(3, administratorVO.getAdm_iden());
 			pstmt.setString(4, administratorVO.getAdm_name());
-			pstmt.setString(5, administratorVO.getAdministrator());
+			pstmt.setInt(5, administratorVO.getAdministrator());
 		
 			pstmt.executeUpdate();
 
@@ -166,7 +166,7 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 
 			while (rs.next()) {
 				admVO = new AdministratorVO();
-				admVO.setAdministrator(rs.getString("ADM_NO"));
+				admVO.setAdministrator(rs.getInt("ADM_NO"));
 				admVO.setAdm_acc(rs.getString("ADM_ACC"));
 				admVO.setAdm_pw(rs.getString("ADM_PW"));
 				admVO.setAdm_iden(rs.getString("ADM_IDEN"));
@@ -219,7 +219,7 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 
 			while (rs.next()) {
 				admVO = new AdministratorVO();
-				admVO.setAdministrator(rs.getString("ADM_NO"));
+				admVO.setAdministrator(rs.getInt("ADM_NO"));
 				admVO.setAdm_acc(rs.getString("ADM_ACC"));
 				admVO.setAdm_pw(rs.getString("ADM_PW"));
 				admVO.setAdm_iden(rs.getString("ADM_IDEN"));

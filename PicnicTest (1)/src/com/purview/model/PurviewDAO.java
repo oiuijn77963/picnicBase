@@ -79,7 +79,7 @@ public class PurviewDAO implements PurviewDAO_interface{
 			pstmt = con.prepareStatement(UPDATE);
 			
 			pstmt.setString(1, purviewVO.getPurview_name());
-			pstmt.setString(2, purviewVO.getPurview_no());
+			pstmt.setInt(2, purviewVO.getPurview_no());
 			
 			pstmt.executeUpdate();
 
@@ -167,7 +167,7 @@ public class PurviewDAO implements PurviewDAO_interface{
 
 			while (rs.next()) {
 				purVO = new PurviewVO();
-				purVO.setPurview_no(rs.getString("PURVIEW_NO"));
+				purVO.setPurview_no(rs.getInt("PURVIEW_NO"));
 				purVO.setPurview_name(rs.getString("PURVIEW_NAME"));
 			}
 		} catch (SQLException se) {
@@ -216,7 +216,7 @@ public class PurviewDAO implements PurviewDAO_interface{
 
 			while (rs.next()) {
 				purVO = new PurviewVO();
-				purVO.setPurview_no(rs.getString("PURVIEW_NO"));
+				purVO.setPurview_no(rs.getInt("PURVIEW_NO"));
 				purVO.setPurview_name(rs.getString("PURVIEW_NAME"));
 				list.add(purVO);
 			}
