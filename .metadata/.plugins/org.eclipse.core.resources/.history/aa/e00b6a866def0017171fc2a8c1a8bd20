@@ -261,54 +261,49 @@ public class AdministratorDAO implements AdministratorDAO_interface{
 		try {
 
 			session.beginTransaction();
-			Query query = session.createQuery("from AdministratorVO order by administrator");
-			list = query.list();
-			session.getTransaction().commit();
-		}catch (RuntimeException ex) {
-			session.getTransaction().rollback();
-			throw ex;
+			Query query = session.createQuery("from AdministratorVO order by administrator")
+			
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(GET_ALL_STMT);
+			rs = pstmt.executeQuery();
+
+			while (rs.next()) {
+				admVO = new AdministratorVO();
+				admVO.setAdministrator(rs.getInt("ADM_NO"));
+				admVO.setAdm_acc(rs.getString("ADM_ACC"));
+				admVO.setAdm_pw(rs.getString("ADM_PW"));
+				admVO.setAdm_iden(rs.getString("ADM_IDEN"));
+				admVO.setAdm_name(rs.getString("ADM_NAME"));
+				admVO.setAdm_sta(rs.getString("ADM_STA"));
+				list.add(admVO);
+			}
+		} catch (SQLException se) {
+			throw new RuntimeException("A database error occured. "
+					+ se.getMessage());
+			// Clean up JDBC resources
+		} finally {
+			if (rs != null) {
+				try {
+					rs.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (pstmt != null) {
+				try {
+					pstmt.close();
+				} catch (SQLException se) {
+					se.printStackTrace(System.err);
+				}
+			}
+			if (con != null) {
+				try {
+					con.close();
+				} catch (Exception e) {
+					e.printStackTrace(System.err);
+				}
+			}
 		}
-//			con = ds.getConnection();
-//			pstmt = con.prepareStatement(GET_ALL_STMT);
-//			rs = pstmt.executeQuery();
-//
-//			while (rs.next()) {
-//				admVO = new AdministratorVO();
-//				admVO.setAdministrator(rs.getInt("ADM_NO"));
-//				admVO.setAdm_acc(rs.getString("ADM_ACC"));
-//				admVO.setAdm_pw(rs.getString("ADM_PW"));
-//				admVO.setAdm_iden(rs.getString("ADM_IDEN"));
-//				admVO.setAdm_name(rs.getString("ADM_NAME"));
-//				admVO.setAdm_sta(rs.getString("ADM_STA"));
-//				list.add(admVO);
-//			}
-//		} catch (SQLException se) {
-//			throw new RuntimeException("A database error occured. "
-//					+ se.getMessage());
-//			// Clean up JDBC resources
-//		} finally {
-//			if (rs != null) {
-//				try {
-//					rs.close();
-//				} catch (SQLException se) {
-//					se.printStackTrace(System.err);
-//				}
-//			}
-//			if (pstmt != null) {
-//				try {
-//					pstmt.close();
-//				} catch (SQLException se) {
-//					se.printStackTrace(System.err);
-//				}
-//			}
-//			if (con != null) {
-//				try {
-//					con.close();
-//				} catch (Exception e) {
-//					e.printStackTrace(System.err);
-//				}
-//			}
-//		}
 		return list;
 	}
 }
