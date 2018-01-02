@@ -150,32 +150,32 @@
 									</tr>
 							    	<tr>
 							    		<c:forEach var="pur_purDetail" items="${pur_purDetail}" begin="0" end="2">
-								    		<td>${pur_purDetail.purview_name}</td>
-								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.adm_no} id="toggle"></td>
+								    		<td>${pur_purDetail.purview_no}</td>
+								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.checked} id="toggle"></td>
 							    		</c:forEach>
 							    	</tr>
 							    	<tr>
 							    		<c:forEach var="pur_purDetail" items="${pur_purDetail}" begin="3" end="5">
-								    		<td>${pur_purDetail.purview_name}</td>
-								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.adm_no} id="toggle"></td>
+								    		<td>${pur_purDetail.purview_no}</td>
+								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.checked} id="toggle"></td>
 							    		</c:forEach>
 							    	</tr>
 							    	<tr>
 							    		<c:forEach var="pur_purDetail" items="${pur_purDetail}" begin="6" end="8">
-								    		<td>${pur_purDetail.purview_name}</td>
-								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.adm_no} id="toggle"></td>
+								    		<td>${pur_purDetail.purview_no}</td>
+								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.checked} id="toggle"></td>
 							    		</c:forEach>
 							    	</tr>
 							    	<tr>
 							    		<c:forEach var="pur_purDetail" items="${pur_purDetail}" begin="9" end="11" >
-								    		<td>${pur_purDetail.purview_name}</td>
-								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.adm_no} id="toggle"></td>
+								    		<td>${pur_purDetail.purview_no}</td>
+								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.checked} id="toggle"></td>
 							    		</c:forEach>
 							    	</tr>
 							    	<tr>
 							    		<c:forEach var="pur_purDetail" items="${pur_purDetail}" begin="12" end="13" >
-								    		<td>${pur_purDetail.purview_name}</td>
-								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.adm_no} id="toggle"></td>
+								    		<td>${pur_purDetail.purview_no}</td>
+								    		<td><input type="checkbox" name="pur_no" value="${pur_purDetail.purview_no }" ${pur_purDetail.checked} id="toggle"></td>
 							    		</c:forEach>
 							    	</tr>
 							    	<input type="hidden" name="Administrator" value="${pur_adm.administrator}">

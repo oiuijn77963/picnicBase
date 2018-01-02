@@ -283,8 +283,8 @@ public class Test_Admini extends HttpServlet{
 			Purview_DetailSerice purDAO = new Purview_DetailSerice();
 			List<Purview_DetailVO> pur_purDetail = purDAO.getAll(admNO);
 			for(Purview_DetailVO pur : pur_purDetail){
-				if(pur.getAdm_no() != null){
-					pur.setAdm_no("checked");
+				if(pur.getAdm_no() > 0){
+					pur.setChecked("checked");
 				}
 			}
 			List<AdministratorVO> admVO = getSearch();
@@ -310,8 +310,8 @@ public class Test_Admini extends HttpServlet{
 			try{
 				for(String purNo : pur_no){
 					Purview_DetailVO pur_detailVO = new Purview_DetailVO();
-					pur_detailVO.setAdm_no(adm_no);
-					pur_detailVO.setPurview_no(purNo);
+					pur_detailVO.setAdm_no(Integer.parseInt(adm_no));
+					pur_detailVO.setPurview_no(Integer.parseInt(purNo));
 					purDAO.addPurview(pur_detailVO);
 				}
 			}catch(NullPointerException e){

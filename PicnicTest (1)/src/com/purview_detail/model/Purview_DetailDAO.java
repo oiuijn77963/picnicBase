@@ -47,8 +47,8 @@ public class Purview_DetailDAO implements Purview_DetailDAO_interface{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(INSERT_STMT);
 
-			pstmt.setString(1, purview_detailVO.getAdm_no());
-			pstmt.setString(2, purview_detailVO.getPurview_no());
+			pstmt.setInt(1, purview_detailVO.getAdm_no());
+			pstmt.setInt(2, purview_detailVO.getPurview_no());
 
 			pstmt.executeUpdate();
 
@@ -83,8 +83,8 @@ public class Purview_DetailDAO implements Purview_DetailDAO_interface{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(UPDATE);
 
-			pstmt.setString(1, purview_detailVO.getPurview_no());
-			pstmt.setString(2, purview_detailVO.getAdm_no());
+			pstmt.setInt(1, purview_detailVO.getPurview_no());
+			pstmt.setInt(2, purview_detailVO.getAdm_no());
 			
 			pstmt.executeUpdate();
 
@@ -162,8 +162,8 @@ public class Purview_DetailDAO implements Purview_DetailDAO_interface{
 
 			while (rs.next()) {
 				pudVO = new Purview_DetailVO();
-				pudVO.setAdm_no(rs.getString("ADM_NO"));
-				pudVO.setPurview_no(rs.getString("PURVIEW_NO"));
+				pudVO.setAdm_no(Integer.parseInt(rs.getString("ADM_NO")));
+				pudVO.setPurview_no(Integer.parseInt(rs.getString("PURVIEW_NO")));
 				list.add(pudVO);
 			}
 
@@ -215,9 +215,13 @@ public class Purview_DetailDAO implements Purview_DetailDAO_interface{
 
 			while (rs.next()) {
 				pudVO = new Purview_DetailVO();
-				pudVO.setAdm_no(rs.getString("ADM_NO"));
-				pudVO.setPurview_name(rs.getString("PURVIEW_NAME"));
-				pudVO.setPurview_no(rs.getString("PURVIEW_NO"));
+				if(rs.getString("ADM_NO") == null || rs.getString("PURVIEW_NO") == null) {
+					pudVO.setAdm_no(-1);
+					pudVO.setPurview_no(-1);
+				}else {
+					pudVO.setAdm_no(Integer.parseInt(rs.getString("ADM_NO")));
+					pudVO.setPurview_no(Integer.parseInt(rs.getString("PURVIEW_NO")));
+				}
 				list.add(pudVO); 
 			}
 
